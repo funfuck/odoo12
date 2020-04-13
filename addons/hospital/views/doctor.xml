@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record model="ir.ui.view" id="doctor_form_view">
+        <field name="name">doctor.form</field>
+        <field name="model">hospital.doctor</field>
+        <field name="arch" type="xml">
+            <form string="Doctor Form">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="age"/>
+                        <field name="gender"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- override the automatically generated list view for Doctor -->
+    <record model="ir.ui.view" id="doctor_tree_view">
+        <field name="name">doctor.tree</field>
+        <field name="model">hospital.doctor</field>
+        <field name="arch" type="xml">
+            <tree string="Doctor Tree">
+                <field name="name"/>
+                <field name="age"/>
+                <field name="gender"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- window action -->
+    <!--
+            The following tag is an action definition for a "window action",
+            that is an action opening a view or a set of views
+        -->
+    <record model="ir.actions.act_window" id="doctor_list_action">
+        <field name="name">Doctors</field>
+        <field name="res_model">hospital.doctor</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Create the first doctor
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="doctors_menu" name="Doctors" parent="hospital_menu" action="doctor_list_action"/>
+
+</odoo>

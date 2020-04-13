@@ -24,10 +24,9 @@
 
     # always loaded
     'data': [
-        # 'security/ir.model.access.csv',
-        # 'views/views.xml',
-        # 'views/templates.xml',
+        'security/ir.model.access.csv',
         'views/patient.xml',
+        'views/doctor.xml',
     ],
     # only loaded in demonstration mode
     'demo': [
