@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record model="ir.ui.view" id="patient_form_view">
+        <field name="name">patient.form</field>
+        <field name="model">hospital.patient</field>
+        <field name="arch" type="xml">
+            <form string="Patient Form">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="age"/>
+                        <field name="age_group"/>
+                        <field name="gender"/>
+                    </group>
+                    <notebook>
+                        <page string="Note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- override the automatically generated list view for patient -->
+    <record model="ir.ui.view" id="patient_tree_view">
+        <field name="name">patient.tree</field>
+        <field name="model">hospital.patient</field>
+        <field name="arch" type="xml">
+            <tree string="Patient Tree">
+                <field name="name"/>
+                <field name="age"/>
+                <field name="age_group"/>
+                <field name="gender"/>
+                <field name="note"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="patient_search_view">
+        <field name="name">patient.search</field>
+        <field name="model">hospital.patient</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <!-- <field name="description"/> -->
+                <filter name="age_group_minor" string="Age Group Minor" domain="['!', ('age', '>', 20)]"/>
+                <filter name="age_group_major" string="Age Group Major" domain="[('age', '>', 20)]"/>
+            </search>
+        </field>
+    </record>
+
+    <!-- window action -->
+    <!--
+            The following tag is an action definition for a "window action",
+            that is an action opening a view or a set of views
+        -->
+    <record model="ir.actions.act_window" id="patient_list_action">
+        <field name="name">Patients</field>
+        <field name="res_model">hospital.patient</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Create the first patient
+            </p>
+        </field>
+    </record>
+
+    <!-- top level menu: no parent -->
+    <menuitem id="main_hospital_menu" name="Hospital"/>
+    <!-- A first level in the left side menu is needed
+             before using action= attribute -->
+    <menuitem id="hospital_menu" name="Hospital" parent="main_hospital_menu"/>
+    <!-- the following menuitem should appear *after*
+             its parent openacademy_menu and *after* its
+             action course_list_action -->
+    <menuitem id="patients_menu" name="Patients" parent="hospital_menu" action="patient_list_action"/>
+    <!-- Full id location: action="openacademy.course_list_action"
+             It is not required when it is the same module -->
+
+</odoo>
