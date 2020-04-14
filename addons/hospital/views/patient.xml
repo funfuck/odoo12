@@ -12,7 +12,7 @@
                         <field name="age"/>
                         <field name="age_group"/>
                         <field name="gender"/>
-                        <field name="doctor_id"/>
+                        <field name="doctor_id" options="{'no_create_edit':True}"/>
                     </group>
                     <notebook>
                         <page string="Note">
@@ -20,6 +20,15 @@
                         </page>
                     </notebook>
                 </sheet>
+                <!-- <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="activity_id" widget="mail_activity"/>
+                    <field name="message_id" widget="mail_thread" options="{'post_refresh': 'recipients'}"/>
+                </div> -->
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
             </form>
         </field>
     </record>

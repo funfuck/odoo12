@@ -4,18 +4,19 @@ from odoo import models, fields, api
 
 class patient(models.Model):
     _name = 'hospital.patient'
+    _inherit = ['mail.thread']
     _description = "Hospital Patients"
 
-    name = fields.Char(required=True)
-    age = fields.Integer(required=True)
+    name = fields.Char(required=True, track_visibility='on_change')
+    age = fields.Integer(required=True, track_visibility='on_change')
     gender = fields.Char(required=True)
-    note = fields.Text()
+    note = fields.Text(track_visibility='on_change')
     color = fields.Integer()
 
     age_group = fields.Char(string="Age Group", compute='_age_group')
 
     doctor_id = fields.Many2one('hospital.doctor',
-        ondelete='set null', string="Doctor", required=True, group_expand='_read_group_stage_ids')
+        ondelete='set null', string="Doctor", required=True, group_expand='_read_group_stage_ids', track_visibility='on_change')
 
     @api.depends('age')
     def _age_group(self):
@@ -34,4 +35,4 @@ class patient(models.Model):
 class patient(models.Model):
     _inherit = 'hospital.patient'
 
-    gender = fields.Selection([ ('M', 'Male'),('F', 'Female'),], '', default='M', required=True)
+    gender = fields.Selection([ ('M', 'Male'),('F', 'Female'),], '', default='M', required=True, track_visibility='on_change')
