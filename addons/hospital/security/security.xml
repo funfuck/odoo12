@@ -1,0 +1,20 @@
+<odoo>
+
+    <record id="group_doctor" model="res.groups">
+        <field name="name">Hospital / Doctor</field>
+    </record>
+
+    <record id="only_responsible_doctor_can_do" model="ir.rule">
+        <field name="name">Only Responsible doctor can do patient</field>
+        <field name="model_id" ref="model_hospital_patient"/>
+        <field name="groups" eval="[(4, ref('hospital.group_doctor'))]"/>
+        <field name="perm_read" eval="1"/>
+        <field name="perm_write" eval="1"/>
+        <field name="perm_create" eval="1"/>
+        <field name="perm_unlink" eval="1"/>
+        <field name="domain_force">
+                [('doctor_id.user_ref','=',user.id)]
+        </field>
+    </record>
+
+</odoo>
