@@ -46,9 +46,9 @@
         <field name="arch" type="xml">
             <search>
                 <field name="name"/>
-                <!-- <field name="description"/> -->
                 <filter name="age_group_minor" string="Age Group Minor" domain="['!', ('age', '>', 20)]"/>
                 <filter name="age_group_major" string="Age Group Major" domain="[('age', '>', 20)]"/>
+                <filter name="my_patients" string="My Patient" domain="[('doctor_id.user_ref', '=', uid)]"/>
             </search>
         </field>
     </record>
@@ -107,6 +107,7 @@
         <field name="res_model">hospital.patient</field>
         <field name="view_type">form</field>
         <field name="view_mode">tree,form,kanban</field>
+        <field name="context">{'search_default_my_patients': uid}</field>
         <field name="help" type="html">
             <p class="o_view_nocontent_smiling_face">Create the first patient
             </p>

@@ -10,6 +10,9 @@ class doctor(models.Model):
     age = fields.Integer(required=True)
     gender = fields.Char(required=True)
 
+    user_ref = fields.Many2one('res.users',
+        ondelete='set null', string="User", index=True)
+
 class doctor(models.Model):
     _inherit = 'hospital.doctor'
 
