@@ -17,4 +17,8 @@
         </field>
     </record>
 
+    <record id="group_doctor_manager" model="res.groups">
+        <field name="name">Hospital / Doctor Manager</field>
+    </record>
+
 </odoo>
