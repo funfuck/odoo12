@@ -8,6 +8,7 @@
             <form string="Doctor Form">
                 <sheet>
                     <group>
+                        <field name="doctor_code"/>
                         <field name="name"/>
                         <field name="age"/>
                         <field name="gender"/>
@@ -24,6 +25,7 @@
         <field name="model">hospital.doctor</field>
         <field name="arch" type="xml">
             <tree string="Doctor Tree">
+                <field name="doctor_code"/>
                 <field name="name"/>
                 <field name="age"/>
                 <field name="gender"/>

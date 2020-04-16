@@ -8,6 +8,7 @@
             <form string="Patient Form">
                 <sheet>
                     <group>
+                        <field name="patient_code"/>
                         <field name="name"/>
                         <field name="age"/>
                         <field name="age_group"/>
@@ -39,6 +40,7 @@
         <field name="model">hospital.patient</field>
         <field name="arch" type="xml">
             <tree string="Patient Tree">
+                <field name="patient_code"/>
                 <field name="name"/>
                 <field name="age"/>
                 <field name="age_group"/>
@@ -90,6 +92,9 @@
                             </div>
                             <div t-attf-class="oe_kanban_content">
                                 <!-- title -->
+                                    Patient code:
+                                <field name="patient_code"/>
+                                <br/>
                                     Patient name:
                                 <field name="name"/>
                                 <br/>
