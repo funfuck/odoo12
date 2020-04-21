@@ -6,6 +6,10 @@
         <field name="model">hospital.patient</field>
         <field name="arch" type="xml">
             <form string="Patient Form">
+                <header>
+                    <button name="hospital.launch_appointment_wizard" string="Add Appointment" type="action" 
+                        class="oe_highlight" context="{'default_patient_id': active_id}" />
+                </header>
                 <sheet>
                     <group>
                         <field name="patient_code"/>

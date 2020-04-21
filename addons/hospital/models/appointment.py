@@ -12,7 +12,7 @@ class appointment(models.Model):
     doctor_id = fields.Many2one('hospital.doctor',
         ondelete='set null', string="Doctor", required=True)
 
-    datetime = fields.Date(default=fields.Date.today)
+    datetime = fields.Date(default=fields.Date.today, required=True)
 
     patient_code_name = fields.Char(string="Patient", compute='_patient_code_name')
     doctor_code_name = fields.Char(string="Doctor", compute='_doctor_code_name')
