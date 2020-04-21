@@ -5,3 +5,4 @@ patient,Hospital patient all,model_hospital_patient,group_doctor,1,1,1,1
 doctor,Hospital doctor all,model_hospital_doctor,group_doctor,1,1,1,1
 patient_manager,Hospital patient manager all,model_hospital_patient,group_doctor_manager,1,1,1,1
 doctor_manager,Hospital doctor manager all,model_hospital_doctor,group_doctor_manager,1,1,1,1
+appointment,Hospital appointment all,model_hospital_appointment,group_doctor_manager,1,1,1,1

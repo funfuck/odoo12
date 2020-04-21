@@ -29,6 +29,7 @@
         'data/sequence.xml',
         'views/patient.xml',
         'views/doctor.xml',
+        'views/appointment.xml',
     ],
     # only loaded in demonstration mode
     'demo': [

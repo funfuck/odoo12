@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record model="ir.ui.view" id="appointment_form_view">
+        <field name="name">appointment.form</field>
+        <field name="model">hospital.appointment</field>
+        <field name="arch" type="xml">
+            <form string="Appointment Form">
+                <sheet>
+                    <group>
+                        <field name="patient_id"/>
+                        <field name="doctor_id"/>
+                        <field name="datetime"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- override the automatically generated list view for appointment -->
+    <record model="ir.ui.view" id="appointment_tree_view">
+        <field name="name">appointment.tree</field>
+        <field name="model">hospital.appointment</field>
+        <field name="arch" type="xml">
+            <tree string="Appointment Tree">
+                <field name="patient_code_name"/>
+                <field name="doctor_code_name"/>
+                <field name="datetime"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- calendar view -->
+    <record model="ir.ui.view" id="appointment_calendar_view">
+        <field name="name">appointment.calendar</field>
+        <field name="model">hospital.appointment</field>
+        <field name="arch" type="xml">
+            <calendar string="Appointment Calendar" date_start="datetime" date_stop="datetime" color="datetime">
+                <field name="patient_code_name"/>
+                <field name="doctor_code_name"/>
+                <field name="datetime"/>
+            </calendar>
+        </field>
+    </record>
+
+    <!-- window action -->
+    <!--
+            The following tag is an action definition for a "window action",
+            that is an action opening a view or a set of views
+        -->
+    <record model="ir.actions.act_window" id="appointment_list_action">
+        <field name="name">Appointments</field>
+        <field name="res_model">hospital.appointment</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form,calendar</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Create the first appointment
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="appointments_menu" name="Appointments" parent="hospital_menu" action="appointment_list_action"/>
+
+</odoo>
