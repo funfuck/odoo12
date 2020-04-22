@@ -31,6 +31,7 @@
         'views/doctor.xml',
         'views/appointment.xml',
         'views/wizard.xml',
+        'views/contact.xml',
     ],
     # only loaded in demonstration mode
     'demo': [
