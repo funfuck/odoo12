@@ -35,7 +35,7 @@
         <field name="name">appointment.calendar</field>
         <field name="model">hospital.appointment</field>
         <field name="arch" type="xml">
-            <calendar string="Appointment Calendar" date_start="datetime" date_stop="datetime" color="datetime">
+            <calendar string="Appointment Calendar" date_start="datetime" date_stop="datetime" color="patient_id" mode="month" quick_add="False">
                 <field name="patient_code_name"/>
                 <field name="doctor_code_name"/>
                 <field name="datetime"/>
